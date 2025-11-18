@@ -6,32 +6,32 @@ import { MapPin, Briefcase, Clock } from 'lucide-react';
 
 const jobs = [
   {
-    title: 'Senior Frontend Engineer',
-    company: 'Nexus Innovations',
+    title: 'Marketing Manager',
+    company: 'Starlight Resorts',
+    location: 'Maldives',
+    type: 'Full-time',
+    tags: ['Marketing', 'Luxury', 'Hospitality'],
+  },
+  {
+    title: 'Web Developer',
+    company: 'WonderlightAdventure',
     location: 'Remote',
     type: 'Full-time',
-    tags: ['React', 'TypeScript', 'Next.js'],
+    tags: ['React', 'Next.js', 'Tailwind CSS'],
   },
   {
-    title: 'Product Manager, AI',
-    company: 'QuantumLeap Inc.',
-    location: 'New York, NY',
-    type: 'Full-time',
-    tags: ['AI', 'Product', 'SaaS'],
-  },
-  {
-    title: 'Cybersecurity Analyst',
-    company: 'SecureNet',
-    location: 'London, UK',
+    title: 'AI Prompt Engineer',
+    company: 'Visionary AI',
+    location: 'San Francisco, CA',
     type: 'Contract',
-    tags: ['Security', 'SOC', 'SIEM'],
+    tags: ['AI', 'GenAI', 'NLP'],
   },
   {
-    title: 'UI/UX Designer (Luxury Brands)',
-    company: 'Elysian Digital',
-    location: 'Paris, FR',
-    type: 'Full-time',
-    tags: ['UI/UX', 'Figma', 'Luxury'],
+    title: 'Tour Guide',
+    company: 'Explore More',
+    location: 'Global',
+    type: 'Part-time',
+    tags: ['Travel', 'Adventure', 'Customer Service'],
   },
 ];
 
@@ -52,7 +52,7 @@ export function FeaturedJobs() {
                 <div className="flex justify-between items-start">
                   <div>
                     <CardTitle className="font-headline text-xl group-hover:text-primary transition-colors">
-                      <Link href="#">{job.title}</Link>
+                      <Link href="/apply">{job.title}</Link>
                     </CardTitle>
                     <CardDescription className="flex items-center gap-2 pt-2">
                       <Briefcase size={14} /> {job.company}
