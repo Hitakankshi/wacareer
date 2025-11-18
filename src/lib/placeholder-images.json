@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Abstract gold particle background",
+      "imageUrl": "https://images.unsplash.com/photo-1661342450387-749045e43208?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMGdvbGR8ZW58MHx8fHwxNzYzMzc3MzI1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract gold"
+    },
+    {
+      "id": "about-image",
+      "description": "Modern luxury office interior",
+      "imageUrl": "https://images.unsplash.com/photo-1525896544042-354764aa27e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsdXh1cnklMjBvZmZpY2V8ZW58MHx8fHwxNzYzMzkzNjQ4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury office"
+    },
+    {
+      "id": "testimonial-avatar-1",
+      "description": "Avatar for a testimonial",
+      "imageUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjMzODMwNzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "testimonial-avatar-2",
+      "description": "Avatar for a testimonial",
+      "imageUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjMzODMwNzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "testimonial-avatar-3",
+      "description": "Avatar for a testimonial",
+      "imageUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjMzODMwNzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "course-web-dev",
+      "description": "Web Development Course Thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1760548425298-22aa4b60fc16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb2RlJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzYzMzU4NTU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "code abstract"
+    },
+    {
+      "id": "course-firebase",
+      "description": "Firebase Masterclass Course Thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1667372283496-893f0b1e7c16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGRhdGFiYXNlfGVufDB8fHx8MTc2MzQ1MTk1OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cloud database"
+    },
+    {
+      "id": "course-ai-prompt",
+      "description": "AI Prompt Engineering Course Thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1636690498207-d7b393423b9a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhYnN0cmFjdCUyMGFpfGVufDB8fHx8MTc2MzMzMDE5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract ai"
+    }
+  ]
 }
