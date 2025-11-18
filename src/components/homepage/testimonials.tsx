@@ -11,12 +11,6 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const testimonials = [
   {
-    name: 'Alexandra Chen',
-    title: 'Senior Software Engineer, Google',
-    quote: "Royal Ascent's platform is a cut above the rest. The quality of opportunities and the seamless application process are unparalleled. I landed my dream job through them.",
-    avatarId: 'testimonial-avatar-1',
-  },
-  {
     name: 'James Carter',
     title: 'Founder, QuantumLeap Inc.',
     quote: "As an employer, finding top-tier talent is always a challenge. Royal Ascent has consistently connected us with exceptional candidates who align with our vision and culture.",
