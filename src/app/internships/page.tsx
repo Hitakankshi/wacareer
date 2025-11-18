@@ -1,7 +1,8 @@
+
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Briefcase, Clock } from 'lucide-react';
+import { Briefcase, Clock } from 'lucide-react';
 import Link from 'next/link';
 
 const internships = [
@@ -16,7 +17,7 @@ const internships = [
         title: 'Frontend Development Intern',
         company: 'CodeCrafters',
         location: 'New York, NY',
-        duration: '4 Months',
+        duration: '4Months',
         tags: ['React', 'JavaScript', 'CSS'],
       },
       {
@@ -51,7 +52,6 @@ export default function InternshipsPage() {
                   </CardDescription>
                 </div>
                 <div className="flex flex-col items-end gap-1 text-sm text-foreground/60">
-                  {internship.location && <span className="flex items-center gap-1.5"><MapPin size={14} /> {internship.location}</span>}
                   <span className="flex items-center gap-1.5"><Clock size={14} /> {internship.duration}</span>
                 </div>
               </div>
