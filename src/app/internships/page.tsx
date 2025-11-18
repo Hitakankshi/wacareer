@@ -45,7 +45,7 @@ export default function InternshipsPage() {
               <div className="flex justify-between items-start">
                 <div>
                   <CardTitle className="font-headline text-xl group-hover:text-primary transition-colors">
-                    <Link href="/apply">{internship.title}</Link>
+                    <Link href="/apply?type=internship">{internship.title}</Link>
                   </CardTitle>
                   <CardDescription className="flex items-center gap-2 pt-2">
                     <Briefcase size={14} /> {internship.company}
@@ -65,7 +65,7 @@ export default function InternshipsPage() {
             </CardContent>
             <CardFooter>
               <Button asChild variant="link" className="p-0 h-auto text-primary">
-                <Link href="/apply">Apply Now &rarr;</Link>
+                <Link href="/apply?type=internship">Apply Now &rarr;</Link>
               </Button>
             </CardFooter>
           </Card>

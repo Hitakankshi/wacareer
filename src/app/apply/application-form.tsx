@@ -1,3 +1,4 @@
+
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -28,7 +29,7 @@ import {
 } from '@/components/ui/alert-dialog';
 import Image from 'next/image';
 
-const formSchema = z.object({
+const baseSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
   phone: z.string().min(10, { message: 'Please enter a valid phone number.' }),
@@ -36,13 +37,24 @@ const formSchema = z.object({
   skills: z.string().min(3, { message: 'Please list at least one skill.' }),
 });
 
-type FormData = z.infer<typeof formSchema>;
+const withResumeSchema = baseSchema.extend({
+  resume: z.any().refine((files) => files?.length === 1, 'Resume is required.'),
+});
 
-export function ApplicationForm() {
+type FormData = z.infer<typeof baseSchema>;
+
+interface ApplicationFormProps {
+  type: 'job' | 'internship' | 'course';
+}
+
+export function ApplicationForm({ type }: ApplicationFormProps) {
   const { toast } = useToast();
   const [isPaymentDialogOpen, setIsPaymentDialogOpen] = useState(false);
 
-  const form = useForm<FormData>({
+  const isJobOrInternship = type === 'job' || type === 'internship';
+  const formSchema = isJobOrInternship ? withResumeSchema : baseSchema;
+
+  const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
@@ -50,15 +62,24 @@ export function ApplicationForm() {
       phone: '',
       experience: '',
       skills: '',
+      ...(isJobOrInternship && { resume: undefined }),
     },
   });
 
-  async function onSubmit(data: FormData) {
-    toast({
-      title: 'Application Submitted!',
-      description: `Thank you, ${data.name}. Please complete the payment.`,
-    });
-    setIsPaymentDialogOpen(true);
+  async function onSubmit(data: z.infer<typeof formSchema>) {
+    if (type === 'course') {
+        toast({
+            title: 'Application Submitted!',
+            description: `Thank you, ${data.name}. Please complete the payment.`,
+        });
+        setIsPaymentDialogOpen(true);
+    } else {
+        toast({
+            title: 'Application Submitted!',
+            description: `Thank you for applying, ${data.name}. We will be in touch shortly.`,
+        });
+        form.reset();
+    }
   }
 
   const closePaymentDialog = () => {
@@ -119,6 +140,25 @@ export function ApplicationForm() {
                   </FormItem>
                 )}
               />
+               {isJobOrInternship && (
+                <FormField
+                  control={form.control}
+                  name="resume"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Resume</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="file"
+                          accept=".pdf,.doc,.docx"
+                          onChange={(e) => field.onChange(e.target.files)}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              )}
               <FormField
                 control={form.control}
                 name="experience"

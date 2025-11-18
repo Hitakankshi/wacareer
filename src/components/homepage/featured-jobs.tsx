@@ -53,7 +53,7 @@ export function FeaturedJobs() {
                 <div className="flex justify-between items-start">
                   <div>
                     <CardTitle className="font-headline text-xl group-hover:text-primary transition-colors">
-                      <Link href="/apply">{job.title}</Link>
+                      <Link href="/apply?type=job">{job.title}</Link>
                     </CardTitle>
                     <CardDescription className="flex items-center gap-2 pt-2">
                       <Briefcase size={14} /> {job.company}
@@ -74,7 +74,7 @@ export function FeaturedJobs() {
               </CardContent>
               <CardFooter>
                 <Button asChild variant="link" className="p-0 h-auto text-primary">
-                  <Link href="/apply">Apply Now &rarr;</Link>
+                  <Link href="/apply?type=job">Apply Now &rarr;</Link>
                 </Button>
               </CardFooter>
             </Card>

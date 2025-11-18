@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -90,7 +91,7 @@ export default function CoursesPage() {
               </CardContent>
               <CardFooter>
                 <Button asChild className="w-full">
-                  <Link href="/apply">Apply</Link>
+                  <Link href="/apply?type=course">Apply</Link>
                 </Button>
               </CardFooter>
             </Card>

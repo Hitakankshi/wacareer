@@ -1,15 +1,37 @@
+
+'use client';
+import { useSearchParams } from 'next/navigation';
 import { ApplicationForm } from './application-form';
 
 export default function ApplyPage() {
+  const searchParams = useSearchParams();
+  const type = searchParams.get('type') || 'job'; // Default to 'job'
+
+  const titles: { [key: string]: string } = {
+    job: 'Apply for a Job',
+    internship: 'Apply for an Internship',
+    course: 'Enroll in a Course',
+  };
+
+  const descriptions: { [key: string]: string } = {
+    job: 'Complete the form below to submit your application for a job.',
+    internship: 'Complete the form below to submit your application for an internship.',
+    course: 'Complete the form below to enroll in the course.',
+  };
+
+  const title = titles[type] || 'Apply Now';
+  const description = descriptions[type] || 'Complete the form below to submit your application.';
+
+
   return (
     <div className="container mx-auto max-w-4xl py-16 md:py-24">
       <div className="space-y-4 text-center">
-        <h1 className="font-headline text-4xl font-bold text-primary">Apply Now</h1>
+        <h1 className="font-headline text-4xl font-bold text-primary">{title}</h1>
         <p className="text-foreground/80">
-          Complete the form below to submit your application.
+          {description}
         </p>
       </div>
-      <ApplicationForm />
+      <ApplicationForm type={type as 'job' | 'internship' | 'course'} />
     </div>
   );
 }
