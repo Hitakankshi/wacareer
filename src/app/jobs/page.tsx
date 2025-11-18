@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -17,7 +18,7 @@ const jobs = [
   {
     title: 'Web Developer',
     company: 'WonderlightAdventure',
-    location: 'Remote',
+    location: '',
     type: 'Full-time',
     tags: ['React', 'Next.js', 'Tailwind CSS'],
   },
