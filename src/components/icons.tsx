@@ -5,8 +5,8 @@ export function Logo(props: SVGProps<SVGSVGElement>) {
     <svg
       {...props}
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 240 50"
-      width="240"
+      viewBox="0 0 80 50"
+      width="80"
       height="50"
     >
       <defs>
@@ -23,7 +23,7 @@ export function Logo(props: SVGProps<SVGSVGElement>) {
         fill="url(#goldGradient)"
         fontWeight="bold"
       >
-        WonderlightAdventure
+        WLA
       </text>
     </svg>
   );
