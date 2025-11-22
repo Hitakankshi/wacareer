@@ -6,7 +6,13 @@ import { Menu } from 'lucide-react';
 import { useState } from 'react';
 import { Logo } from '@/components/icons';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+  SheetDescription,
+} from '@/components/ui/sheet';
 import { useUser, useAuth } from '@/firebase';
 import { signOut } from '@/firebase/auth/actions';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -119,6 +125,10 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <SheetTitle className="sr-only">Menu</SheetTitle>
+              <SheetDescription className="sr-only">
+                Mobile navigation menu
+              </SheetDescription>
               <div className="p-4">
                 <div className="mb-8">
                   <Logo className="h-8 w-auto" />
