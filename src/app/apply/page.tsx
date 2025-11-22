@@ -3,8 +3,9 @@
 import { useSearchParams } from 'next/navigation';
 import { ApplicationForm } from './application-form';
 import TextType from '@/components/ui/text-type';
+import React, { Suspense } from 'react';
 
-export default function ApplyPage() {
+function ApplyPageContent() {
   const searchParams = useSearchParams();
   const type = searchParams.get('type') || 'job'; // Default to 'job'
 
@@ -23,9 +24,8 @@ export default function ApplyPage() {
   const title = titles[type] || 'Apply Now';
   const description = descriptions[type] || 'Complete the form below to submit your application.';
 
-
   return (
-    <div className="container mx-auto max-w-4xl py-16 md:py-24">
+    <>
       <div className="space-y-4 text-center">
         <TextType
           as="h1"
@@ -39,6 +39,16 @@ export default function ApplyPage() {
         </p>
       </div>
       <ApplicationForm type={type as 'job' | 'internship' | 'course'} />
+    </>
+  );
+}
+
+export default function ApplyPage() {
+  return (
+    <div className="container mx-auto max-w-4xl py-16 md:py-24">
+       <Suspense fallback={<div>Loading...</div>}>
+        <ApplyPageContent />
+      </Suspense>
     </div>
   );
 }
