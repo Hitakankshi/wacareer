@@ -75,6 +75,7 @@ const TextType = ({
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             setIsVisible(true);
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -108,23 +109,21 @@ const TextType = ({
 
     const executeTypingAnimation = () => {
       if (isDeleting) {
-        if (displayedText === '') {
+        if (displayedText.length > 0) {
+           timeout = setTimeout(() => {
+            setDisplayedText(prev => prev.slice(0, -1));
+          }, deletingSpeed);
+        } else {
           setIsDeleting(false);
-          if (currentTextIndex === textArray.length - 1 && !loop) {
-            return;
-          }
-
           if (onSentenceComplete) {
             onSentenceComplete(textArray[currentTextIndex], currentTextIndex);
           }
-
           setCurrentTextIndex(prev => (prev + 1) % textArray.length);
           setCurrentCharIndex(0);
-          timeout = setTimeout(() => {}, pauseDuration);
-        } else {
-          timeout = setTimeout(() => {
-            setDisplayedText(prev => prev.slice(0, -1));
-          }, deletingSpeed);
+
+          if (!loop && currentTextIndex === textArray.length - 1) {
+            return;
+          }
         }
       } else {
         if (currentCharIndex < processedText.length) {
@@ -135,8 +134,13 @@ const TextType = ({
             },
             variableSpeed ? getRandomSpeed() : typingSpeed
           );
-        } else if (textArray.length > 1 || loop) {
-          if (!loop && currentTextIndex === textArray.length - 1) return;
+        } else {
+           if (!loop && currentTextIndex === textArray.length - 1) {
+             if (onSentenceComplete) {
+                onSentenceComplete(textArray[currentTextIndex], currentTextIndex);
+             }
+             return; 
+           }
           timeout = setTimeout(() => {
             setIsDeleting(true);
           }, pauseDuration);
