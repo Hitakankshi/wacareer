@@ -17,17 +17,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { useState } from 'react';
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from '@/components/ui/alert-dialog';
-import Image from 'next/image';
 import { useFirestore, useUser } from '@/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -50,7 +39,6 @@ interface ApplicationFormProps {
 
 export function ApplicationForm({ type }: ApplicationFormProps) {
   const { toast } = useToast();
-  const [isPaymentDialogOpen, setIsPaymentDialogOpen] = useState(false);
   const { user } = useUser();
   const firestore = useFirestore();
   const router = useRouter();
@@ -104,10 +92,11 @@ export function ApplicationForm({ type }: ApplicationFormProps) {
 
       if (type === 'course') {
           toast({
-              title: 'Application Submitted!',
-              description: `Thank you, ${data.name}. Please complete the payment.`,
+              title: 'Successfully Registered!',
+              description: `Thank you, ${data.name}. You have successfully registered for the course.`,
           });
-          setIsPaymentDialogOpen(true);
+          form.reset();
+          router.push('/student/dashboard');
       } else {
           toast({
               title: 'Application Submitted!',
@@ -123,12 +112,6 @@ export function ApplicationForm({ type }: ApplicationFormProps) {
         description: 'There was an error submitting your application. Please try again.',
       });
     }
-  }
-
-  const closePaymentDialog = () => {
-    setIsPaymentDialogOpen(false);
-    form.reset();
-    router.push('/student/dashboard');
   }
 
   return (
@@ -238,29 +221,6 @@ export function ApplicationForm({ type }: ApplicationFormProps) {
           </Form>
         </CardContent>
       </Card>
-
-      <AlertDialog open={isPaymentDialogOpen} onOpenChange={setIsPaymentDialogOpen}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Complete Your Payment</AlertDialogTitle>
-            <AlertDialogDescription>
-              Scan the QR code with your UPI app to complete the course application.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <div className="flex justify-center">
-            <Image
-              src="/upi-qr-code.png"
-              alt="UPI QR Code"
-              width={250}
-              height={250}
-              data-ai-hint="qr code"
-            />
-          </div>
-          <AlertDialogFooter>
-            <AlertDialogAction onClick={closePaymentDialog}>Close</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </>
   );
 }
