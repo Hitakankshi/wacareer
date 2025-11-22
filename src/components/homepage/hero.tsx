@@ -2,24 +2,14 @@
 'use client';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-
-const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background');
+import Bubbles from './bubbles';
 
 export function Hero() {
   return (
     <section className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
-      {heroImage && (
-        <Image
-          src={heroImage.imageUrl}
-          alt={heroImage.description}
-          fill
-          className="object-cover"
-          priority
-          data-ai-hint={heroImage.imageHint}
-        />
-      )}
+      <div className="absolute inset-0">
+        <Bubbles className="w-full h-full" />
+      </div>
       <div className="absolute inset-0 bg-black/60" />
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
         <h1 className="font-headline text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
